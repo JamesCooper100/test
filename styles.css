@@ -150,6 +150,10 @@
       text-transform: uppercase;
 
     }
+    .input-box:disabled {
+      opacity:1;
+      -webkit-text-fill-color: #2fb100;
+    }
     .word-container {
       display: flex;
       flex-wrap: wrap;
@@ -165,10 +169,12 @@
       border-bottom:3px solid rgb(0, 0, 0);
     }
     input.winner {
-      color:rgb(21, 182, 0);
+      color: #2fb100;
       border-bottom:3px solid rgb(0, 0, 0);
       cursor:default;
+      opacity: 1 !important;
     }
+
     input.give-up {
       color:rgb(0, 0, 0);
       border-bottom:3px solid rgb(0, 0, 0);
