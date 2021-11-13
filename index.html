@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
   <link rel="stylesheet" href="/test/styles.css">
   <title>Emoji Dingbats | Random dingbat:</title>
 </head>
@@ -25,7 +25,7 @@
     
     <ul>
       <li>
-        Difficulty:
+        Set difficulty:
       </li>
       <radio-group>
       <li>
@@ -50,12 +50,12 @@
   <div class="body content">
 
   
-  <div class='site-title'>Expressions</div>
+  <div class='category-title'>Expressions</div>
   
 
   
     
-    <div class='question_box'>🌧️🐱🐶</div>
+    <div class='question_box' style="font-size:min(80px, 20vmin);">🌧️🐱🐶</div>
     <div class='answer_box' id='answer_box'>
       
       
@@ -312,8 +312,8 @@
   }
 
   function updateCompletion(success, answered) {
-    const completionPercentage = ((39 + (success ? 1 : 0))  / (57 + (answered ? 1 : 0)) * 100) || 0;
-    document.getElementById('completionPercentage').innerHTML = `This puzzle has a <b>${Math.floor(completionPercentage)}%</b> completion rate out of <b>${57 + (answered ? 1 : 0)}</b> attempts`
+    const completionPercentage = ((39 + (success ? 1 : 0))  / (58 + (answered ? 1 : 0)) * 100) || 0;
+    document.getElementById('completionPercentage').innerHTML = `This puzzle has a <b>${Math.floor(completionPercentage)}%</b> completion rate out of <b>${58 + (answered ? 1 : 0)}</b> attempts`
   }
 
   function giveUp(boxes) {
