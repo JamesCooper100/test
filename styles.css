@@ -385,7 +385,7 @@
       background-color: rgb(46, 46, 46);
     }
 
-    //.hidden-input {
+    .hidden-input {
       position: absolute;
       left: -9999%;
     }
