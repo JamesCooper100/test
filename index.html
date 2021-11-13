@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/test/styles.css">
+  <link rel="stylesheet" href="/styles.css">
   <title>Emoji Dingbats | Random dingbat:</title>
 </head>
 
@@ -182,7 +182,7 @@
     addEventListeners(boxes, words, input_box);
 
     if (!clear) {
-      hidden_input.focus();
+      input_box.focus();
     } else {
       Object.values(document.getElementsByClassName('focused'))[0].focus();
     }
@@ -197,6 +197,12 @@
 
   function addEventListeners(boxes, words, input_box) {
 
+    function refresh_boxes() {
+      boxes.forEach((box, i) => {
+        box.innerHTML = input_box.value[i] || "";
+      })
+    }
+
     let boxes_length = boxes.length;
     
     
@@ -204,20 +210,20 @@
     input_box.addEventListener('input', (input) => {
       refresh_boxes();
     })
+
     input_box.addEventListener('keypress', (event) => {
       if (event.code === 'Space') {
         event.preventDefault();
       }
     })
 
-    function refresh_boxes() {
-      boxes.forEach((box, i) => {
-        box.innerHTML = input_box.value[i] || "";
-      })
-    }
+    boxes.forEach((box,i) => {
+      box.addEventListener('click', (event) => { 
+        input_box.focus();
+    })
+  })
+}
 
-
-  }
 
   function checkCorrectWord () {
 
