@@ -1,0 +1,391 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap');
+    body{
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 0 20px;
+      font-family: 'Noto Serif', serif;
+      max-width: 1200px;
+    }
+    p, h1, h2, h3, a, ul{
+      margin: 0;
+      padding: 0;
+      text-decoration: none;
+      color: #222;
+    }
+
+    /* nav & footer styles */
+    nav{
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #ddd;
+      text-transform: uppercase;
+
+      
+    }
+    nav ul{
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      
+    }
+    nav li{
+      list-style-type: none;
+      margin-left: 20px;
+      margin:auto 0;
+    }
+
+
+    .site-title {
+      text-align:center;
+    }
+
+    .site-title{
+      font-size: 3em;
+      font-weight: bold;
+      color: rgb(7, 148, 190);
+    }
+    .site-title nav p, nav a{
+      color: #777;
+      font-weight: 300;
+    }
+    footer{
+      color: #777;
+      text-align: center;
+      margin: 80px auto 20px;
+    }
+    h2{
+      margin-bottom: 40px;
+    }
+    h3{
+      text-transform: capitalize;
+      margin-bottom: 8px;
+    }
+    .content{
+      display:flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items:center;
+      margin-top:100px;
+    }
+
+    /* index styles */
+    .blogs a{
+      display: block;
+      margin: 40px 0;
+      padding-left: 30px;
+      border-left: 6px solid crimson;
+    }
+    .blogs a:hover h3{
+      color: crimson;
+    }
+
+    /* details styles */
+    .details{
+      position: relative;
+    }
+    .delete{
+      position: absolute;
+      top: 0;
+      right: 0;
+      border-radius: 50%;
+      padding: 8px;
+    }
+    .delete:hover{
+      cursor: pointer;
+      box-shadow: 1px 2px 3px rgba(0,0,0,0.2);
+    }
+
+    /* create styles */
+    .create-blog form{
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    .create-blog input,
+    .create-blog textarea{
+      display: block;
+      width: 100%;
+      margin: 10px 0;
+      padding: 8px;
+    }
+    .create-blog label{
+      display: block;
+      margin-top: 24px;
+    }
+    textarea{
+      height: 120px;
+    }
+    .create-blog button{
+      margin-top: 20px;
+      background: crimson;
+      color: white;
+      padding: 6px;
+      border: 0;
+      font-size: 1.2em;
+      cursor: pointer;
+    }
+
+    .answer_box {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 20px;
+
+    }
+
+    .input-box {
+      width:30px;
+      height:30px;
+      margin:5px 5px;
+      font-size: 26px;
+      text-align: center;
+      background-color: rgb(245, 245, 245);
+      outline:none;
+      border:none;
+      border-bottom: 3px solid rgb(7, 148, 190);
+      caret-color: transparent;
+      cursor: pointer;
+      border-radius: 0;
+      padding:0;
+      text-transform: uppercase;
+
+    }
+    .word-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      margin:10px 22.5px;
+      background-color: rgb(245, 245, 245);
+      border-radius: 10px;
+      padding:5px 5px ;
+    }
+
+    input.focused {
+      border-bottom:3px solid rgb(0, 0, 0);
+    }
+    input.winner {
+      color:rgb(21, 182, 0);
+      border-bottom:3px solid rgb(0, 0, 0);
+      cursor:default;
+    }
+    input.give-up {
+      color:rgb(0, 0, 0);
+      border-bottom:3px solid rgb(0, 0, 0);
+    }
+
+    .question_box {
+      font-size: 100px;
+      text-align: center;
+      margin:20px 20px;
+    }
+
+
+    .category-title {
+      text-align: center;
+      margin:10px 20px;
+    }
+    .errmsg {
+      color:rgb(197, 0, 0);
+      text-align: center;
+      margin:15px;
+    }
+    .thumbs {
+      text-align: center;
+      
+    }
+    .thumb-flex {
+      display:flex;
+      justify-content: center;
+      position:relative;
+    }
+    .thumbs-down, .thumbs-up {
+      font-size: 70px;
+      margin:20px 50px;
+      position:relative;
+
+    }
+    .hidden {
+      display:none !important;
+    }
+    .success-box {
+      text-align:center;
+    }
+    .congratulations {
+      font-weight: bold;
+      font-size:20px;
+      margin:10px;
+
+    }
+    .giveUpBox {
+      margin-top:10px;
+      text-align: center;
+    }
+    .giveUpButton  {
+      
+      background: rgb(7, 148, 190);
+      color: white;
+      padding: 6px;
+      border: 0;
+      font-size: 1.2em;
+      cursor: pointer;
+      border-radius: 5px;
+      
+    }
+
+    .giveUpButton:hover{
+      background: rgb(0, 0, 0);
+ }
+    .share-url {
+      width:350px;
+      color:grey;
+
+    }
+    .share-url:focus {
+      color:black;
+    }
+    div.share-container {
+      position:relative;
+      display: inline-block;
+      width:auto;
+
+    }
+    span.share-url-container :focus {
+      outline: none;
+      border-radius: 1px;
+      border: 2px solid green;
+    }
+    span.share-url-container:focus-within::after  {
+      background-color: green;
+      color:white;
+      font-size: 14px;
+      width: 60px;
+      height: 24px;
+      position:absolute;
+      bottom:-24px;
+      right:0px;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+      content:'copied';
+
+    }
+    //.thumbs-up:hover::after {
+      content:'👍🏽';
+      display:inline-block;
+      position:absolute;
+      top:inherit;
+      right:0;
+      z-index:1;
+      pointer-events: none;
+    }
+    //.thumbs-down:hover::after {
+      content:'👎🏽';
+      display:inline-block;
+      position:absolute;
+      top:inherit;
+      right:0;
+      z-index:1;
+      pointer-events: none;
+    }
+    .question-create-input {
+      text-align: center;
+      font-size: 50px;
+      cursor:pointer;
+    
+    }
+
+    .clue-button {
+      background: rgb(245, 245, 245);
+      color: rgb(7, 148, 190);;
+      padding: 6px;
+      border: 2px solid rgb(7, 148, 190);
+      font-size: 1em;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .clue-box {
+      margin-top:10px;
+      text-align: center;
+      height:50px;
+      font-size: 1.2em;
+    }
+    .clues-and-button {
+      margin-top:0px;
+    }
+    .cluesAndButton {
+      display:inline-block;
+    }
+
+    .options-menu {
+      
+      float:right;
+    }
+    .options-menu ul {
+      padding: 2px 10px;
+      margin: 0;
+      clear: both;
+      display: inline;
+      background-color: rgb(7, 148, 190);
+      color:white;
+      border-radius: 5px;
+
+    }
+
+    //.options-menu ul::before {
+      content:'';
+      position:absolute;
+      width:100%;
+      height:26px;
+      background-color: rgb(7, 148, 190);
+      left:0;
+      top:58px;
+      z-index: -999;
+    }
+    
+    .options-menu li{
+      list-style-type: none;
+      list-style-position: outside;
+      padding: 0px;
+      display:inline;
+
+    }
+    
+    .options-menu input[type="radio"]:not(:checked), 
+    .options-menu input[type="radio"]:checked {
+      position: absolute;
+      left: -9999%;
+    }
+    
+    .options-menu input[type="radio"] + label {
+      display: inline-block;
+      padding: 5px;
+      cursor: pointer;
+      border: 2px solid rgb(7, 148, 190);
+      color: rgb(7, 148, 190);
+      background-color: rgb(245, 245, 245);
+
+      border-radius: 5px;
+    }
+    
+    .options-menu input[type="radio"]:checked + label {
+      border: 2px solid rgb(7, 148, 190);
+      color: rgb(255, 255, 255);
+      
+    }
+    .options-menu input[type="radio"]:checked + label.easy-label {
+      background-color: rgb(85, 192, 85);
+    }
+    .options-menu input[type="radio"]:checked + label.medium-label {
+      background-color: rgb(204, 167, 44);
+    }
+    .options-menu input[type="radio"]:checked + label.hard-label {
+      background-color: rgb(148, 56, 56);
+    }
+    .options-menu input[type="radio"]:checked + label.evil-label {
+      background-color: rgb(46, 46, 46);
+    }
+
+    //.hidden-input {
+      position: absolute;
+      left: -9999%;
+    }
