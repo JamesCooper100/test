@@ -1,0 +1,357 @@
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles.css">
+  <title>Emoji Dingbats | Random dingbat:</title>
+</head>
+
+
+
+<body>
+  <nav>
+  <li><h1>Emoji Dingbats</h1></li>
+  <ul>
+    <li><a href="/dingbats/create">Create a dingbat</a></li>
+  </ul>
+
+
+</nav>
+
+
+
+  <div id="options_menu" class="options-menu">
+    
+    <ul>
+      <li>
+        Set difficulty:
+      </li>
+      <radio-group>
+      <li>
+        <input type="radio" id="check_1" name="radio-group" value="easy">
+        <label for="check_1" class="easy-label">Easy</label>
+      </li>
+      <li>
+        <input type="radio" id="check_2" name="radio-group" value="medium">
+        <label for="check_2" class="medium-label">Medium</label>
+      </li>
+      <li>
+        <input type="radio" id="check_3" name="radio-group" value="hard">
+        <label for="check_3" class="hard-label">Hard</label>
+      </li>
+      <li>
+        <input type="radio" id="check_4" name="radio-group" value="evil">
+        <label for="check_4" class="evil-label">Evil</label>
+      </li>
+      </radio-group>
+    </ul>
+  </div>
+  <div class="body content">
+
+  
+  <div class='site-title'>Expressions</div>
+  
+
+  
+    
+    <div class='question_box'>🐒💼</div>
+    <div class='answer_box' id='answer_box'>
+      <input class="hidden-input" id="hidden-input" maxlength="15" autocomplete="off"/>
+      
+      
+        
+        <div name="active-word" class="word-container">
+        
+          <div class="input-box" type="text" id="text-input" name="input-box"></div>
+        
+          <div class="input-box" type="text" id="text-input" name="input-box"></div>
+        
+          <div class="input-box" type="text" id="text-input" name="input-box"></div>
+        
+          <div class="input-box" type="text" id="text-input" name="input-box"></div>
+        
+          <div class="input-box" type="text" id="text-input" name="input-box"></div>
+        
+          <div class="input-box" type="text" id="text-input" name="input-box"></div>
+        
+        </div>
+      
+        
+          <div class='blank_space' id='blank'></div>
+        
+        <div name="active-word" class="word-container">
+        
+          <div class="input-box" type="text" id="text-input" name="input-box"></div>
+        
+          <div class="input-box" type="text" id="text-input" name="input-box"></div>
+        
+          <div class="input-box" type="text" id="text-input" name="input-box"></div>
+        
+          <div class="input-box" type="text" id="text-input" name="input-box"></div>
+        
+          <div class="input-box" type="text" id="text-input" name="input-box"></div>
+        
+          <div class="input-box" type="text" id="text-input" name="input-box"></div>
+        
+          <div class="input-box" type="text" id="text-input" name="input-box"></div>
+        
+          <div class="input-box" type="text" id="text-input" name="input-box"></div>
+        
+        </div>
+      
+      
+      
+    </div>
+    <div id='cluesAndButton' class='clues-and-button'>
+      
+      
+      
+      <div class='giveUpBox'>
+        
+        <button id='giveUp' class='giveUpButton'>Show Answer</button>
+      </div>
+    </div>
+
+    <div id='answered' class='success-box hidden'>
+    <h3 id="congratulations" class='congratulations'>Congratulations!</h3>
+    <div id='completionPercentage' class='completionPercentage category-title' ></div><br/>
+    <p id='timeScore' class='timeScore'></p><br/>
+    <div id='thumbs' class='thumbs'>
+      
+      <p> Select a rating to move on to the next puzzle.</p>
+      <div id='thumbFlex' class='thumb-flex'>
+      <div id='thumbs-down' class='thumbs-down'><a href='/dingbats/rate?id=618975dbfae7ac151623b4e2&rating=down'>👎</a></div>
+      <div id='thumbs-up' class='thumbs-up'><a href='/dingbats/rate?id=618975dbfae7ac151623b4e2&rating=up'>👍</a></div>
+
+      
+      </div>
+      <div class="share-container"><span>Share link: </span><span class='share-url-container'><input id="shareUrl" class="share-url" value="http://localhost/dingbats/618975dbfae7ac151623b4e2" onclick="this.select(); navigator.clipboard.writeText(this.value);"/></span></div>
+    </div>
+  </div>
+
+      
+
+  </div>
+
+  <footer>
+  Copyright &copy; Blah Blah
+</footer>
+</body>
+
+</html>
+
+<script>
+
+
+  let loadTime;
+  let answer = 'Monkey business';
+  let wordArray = answer.toUpperCase().split(' ');
+
+  window.onload = () => {
+    loadTime = Date.now();
+    init();
+  }
+
+
+  function init(clear=false) {
+
+      //Check to see if correct answer
+      if (!wordArray.length) {
+        puzzleAnsweredCorrectly(Object.values(document.getElementsByName("input-box")), (Date.now() - loadTime)/1000);
+        return
+      }
+
+  
+    if (clear) {
+      clearEventListeners()
+    } else {
+      setRadioButtons();
+      updateCompletion(success=false, answered=false)
+    }
+
+    let boxes = Object.values(document.getElementsByName("input-box")).filter(word => !word.disabled);
+    
+    let words = Object.values(document.getElementsByName("active-word")).filter(word => !word.children[0].disabled);
+
+   
+    
+    let input_box = document.getElementById('hidden-input');
+
+
+    addEventListeners(boxes, words, input_box);
+
+    if (!clear) {
+      hidden_input.focus();
+    } else {
+      Object.values(document.getElementsByClassName('focused'))[0].focus();
+    }
+
+    }
+
+  function clearEventListeners() {
+    let old_element = document.getElementById("answer_box");
+    let new_element = old_element.cloneNode(true);
+    old_element.parentNode.replaceChild(new_element, old_element);
+  }
+
+  function addEventListeners(boxes, words, input_box) {
+
+    let boxes_length = boxes.length;
+    
+    
+
+    input_box.addEventListener('input', (input) => {
+      refresh_boxes();
+    })
+    input_box.addEventListener('keypress', (event) => {
+      if (event.code === 'Space') {
+        event.preventDefault();
+      }
+    })
+
+    function refresh_boxes() {
+      boxes.forEach((box, i) => {
+        box.innerHTML = input_box.value[i] || "";
+      })
+    }
+
+
+  }
+
+  function checkCorrectWord () {
+
+  }
+
+  function checkCorrectAnswer () {
+
+  }
+
+  function wordAnsweredCorrectly(wordBoxes,word) {
+    wordBoxes.forEach((box) => {
+      
+      box.classList.remove('focused');
+      box.disabled = true;
+      //box.name = 'inactive-box'
+      box.classList.add('winner');
+    })
+
+    init(true)
+
+
+  }
+  function puzzleAnsweredCorrectly(boxes, time) {
+    boxes.forEach((box, i) => {
+      box.classList.add('winner');
+      box.classList.remove('focused');
+      box.disabled = true;
+      
+    })
+    updateSuccess(time);
+    updateCompletion(success=true, answered=true);
+    initRatingDisplay(true);
+  }
+
+  function updateCompletion(success, answered) {
+    const completionPercentage = ((34 + (success ? 1 : 0))  / (82 + (answered ? 1 : 0)) * 100) || 0;
+    document.getElementById('completionPercentage').innerHTML = `This puzzle has a <b>${Math.floor(completionPercentage)}%</b> completion rate out of <b>${82 + (answered ? 1 : 0)}</b> attempts`
+  }
+
+  function giveUp(boxes) {
+    updateCompletion(success=false, answered=true);
+    boxes.forEach((box, i) => {
+      box.value = answer.replace(/ /g, '').toUpperCase()[i]
+      box.classList.add('give-up');
+      box.classList.remove('focused');
+      box.disabled = true;
+
+    })
+    const xhttp = new XMLHttpRequest();
+    xhttp.open("POST", "/dingbats/failed");
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send('id=618975dbfae7ac151623b4e2');
+    initRatingDisplay(false);
+  }
+
+  function updateSuccess(time) {
+    const xhttp = new XMLHttpRequest();
+    xhttp.open("POST", "/dingbats/success");
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send('id=618975dbfae7ac151623b4e2&time=' + time);
+    const averageTime = (Math.round(20.022711229946523 * 100) / 100).toFixed(2);
+    const timePercentageDifference = ((averageTime - time) / averageTime) * 100;
+    const fasterOrSlower = timePercentageDifference < 0 ? 'slower' : 'faster';
+    document.getElementById('timeScore').innerHTML = averageTime > 0 ? `You were <span style='color: ${fasterOrSlower === 'faster' ? 'green' : 'red'}'>${Math.floor(Math.abs(timePercentageDifference).toString())}% ${fasterOrSlower}</span> than the average speed of <b>${averageTime}</b> seconds` : '';
+  }
+
+  function initRatingDisplay(success) {
+    document.getElementById('answered').classList.remove('hidden');
+    if (!success){
+      document.getElementById('congratulations').classList.add('hidden');
+      document.getElementById('timeScore').classList.add('hidden');
+    }
+    
+    document.getElementById('cluesAndButton').classList.add('hidden');
+    
+    
+
+  }
+
+  function revealClue() {
+    document.getElementById('clueButton').remove();
+    document.getElementById('clue').innerHTML = "";
+  }
+
+  function setRadioButtons() {
+    radios = Object.values(document.getElementsByName('radio-group'));
+    difficulty = getCookie('difficulty');
+    switch(difficulty) {
+      case 'easy':
+        radios[0].checked = true;
+        break;
+      case 'medium':
+        radios[1].checked = true;
+        break;
+      case 'hard':
+      radios[2].checked = true;
+      break;
+      case 'evil':
+        radios[3].checked = true;
+      break;
+      default:
+        radios[0].checked = true;
+    }
+    radios.forEach(radio => {
+      console.log(radio)
+      radio.addEventListener('change', () => {
+        if (radio.checked) {
+          setCookie('difficulty', radio.value, 30)
+        }
+      })
+    })
+  }
+
+  function getCookie(cname) {
+    let name = cname + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for(let i = 0; i <ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+  }
+  function setCookie(cname, cvalue, exdays) {
+    const d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    let expires = "expires="+ d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+  }
+
+
+</script>
